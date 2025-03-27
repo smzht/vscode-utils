@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
+# https://open-vsx.org/
+
+command_name=$(basename "$0")
+
+function usage_exit() {
+    cat << EOF >&2
+Usage: $command_name unique-identifier latest|version
+EOF
+    exit $1
+}
+
+if [ $# -ne 2 ]; then
+    usage_exit 2
+fi
+
+arr=(${1//./ })
+
+if [ ${#arr[@]} -ne 2 ]; then
+    usage_exit 2
+fi
+
+curl -L "https://${arr[0]}.gallery.vsassets.io/_apis/public/gallery/publisher/${arr[0]}/extension/${arr[1]}/$2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage" -o "${arr[0]}.${arr[1]}-$2".vsix
