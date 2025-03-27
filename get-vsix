@@ -22,4 +22,4 @@ if [ ${#arr[@]} -ne 2 ]; then
     usage_exit 2
 fi
 
-curl -L "https://${arr[0]}.gallery.vsassets.io/_apis/public/gallery/publisher/${arr[0]}/extension/${arr[1]}/$2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage" -o "${arr[0]}.${arr[1]}-$2".vsix
+wget -O "${arr[0]}.${arr[1]}-$2".vsix "https://${arr[0]}.gallery.vsassets.io/_apis/public/gallery/publisher/${arr[0]}/extension/${arr[1]}/$2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
