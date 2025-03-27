@@ -2,6 +2,9 @@
 
 # https://www.mathkuro.com/vs-code/remote-development-in-offline/
 
+# <Example>
+#  get-vscode-server ddc367ed5c8936efe395cffeec279b04ffd7db78
+
 command_name=$(basename "$0")
 
 function usage_exit() {
@@ -15,7 +18,7 @@ if [ $# -ne 1 ]; then
     usage_exit 2
 fi
 
-wget -O vscode-server-linux-x64.tar.gz https://update.code.visualstudio.com/commit:"$1"/server-linux-x64/stable
+wget -O vscode-server-linux-x64.tar.gz "https://update.code.visualstudio.com/commit:$1/server-linux-x64/stable"
 
 # cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
 # cd ~/.vscode-server/bin
