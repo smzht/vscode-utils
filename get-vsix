@@ -4,6 +4,7 @@
 # https://open-vsx.org/
 
 # <Examples>
+#  get-vsix MS-CEINTL.vscode-language-pack-ja
 #  get-vsix MS-CEINTL.vscode-language-pack-ja latest
 #  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
 #  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025022817
@@ -12,13 +13,19 @@ command_name=$(basename "$0")
 
 function usage_exit() {
     cat << EOF >&2
-Usage: $command_name unique-identifier version
+Usage: $command_name unique-identifier [version]
 EOF
     exit $1
 }
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 -a $# -ne 2 ]; then
     usage_exit 2
+fi
+
+if [ $# -eq 1 ]; then
+    version=latest
+else
+    version="$2"
 fi
 
 arr=(${1//./ })
@@ -27,4 +34,4 @@ if [ ${#arr[@]} -ne 2 ]; then
     usage_exit 2
 fi
 
-wget -O "${arr[0]}.${arr[1]}-$2".vsix "https://${arr[0]}.gallery.vsassets.io/_apis/public/gallery/publisher/${arr[0]}/extension/${arr[1]}/$2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+wget -O "${arr[0]}.${arr[1]}-${version}.vsix" "https://${arr[0]}.gallery.vsassets.io/_apis/public/gallery/publisher/${arr[0]}/extension/${arr[1]}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
