@@ -3,11 +3,16 @@
 # https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
 # https://open-vsx.org/
 
+# <Examples>
+#  get-vsix MS-CEINTL.vscode-language-pack-ja latest
+#  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
+#  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025022817
+
 command_name=$(basename "$0")
 
 function usage_exit() {
     cat << EOF >&2
-Usage: $command_name unique-identifier latest|version
+Usage: $command_name unique-identifier version
 EOF
     exit $1
 }
