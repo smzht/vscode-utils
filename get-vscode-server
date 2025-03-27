@@ -6,7 +6,7 @@ command_name=$(basename "$0")
 
 function usage_exit() {
     cat << EOF >&2
-Usage: $command_name commitID
+Usage: $command_name commit-id
 EOF
     exit $1
 }
