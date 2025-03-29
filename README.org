@@ -39,6 +39,33 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 ダウンロードされた vsix ファイルは、オフライン環境の PC に転送し、 VSCode アプリから
 インストールしてください。
 
+*** 使用例２
+
+Windows で動作している VSCode の拡張機能を全て vsix ファイルとしてダウンロードするには、
+WSL の環境上で次のコマンドを実行してください。
+
+#+BEGIN_EXAMPLE
+code --update-extensions
+
+for i in $(code --list-extensions --show-versions);
+do
+    arr=(${i//@/ })
+    get-vsix ${arr[0]} ${arr[1]}
+done
+#+END_EXAMPLE
+
+ダウンロードした vsix フィアルを VSCode に一括で取り込むには、WSL の環境上で次のコマンドを
+実行してください。
+
+#+BEGIN_EXAMPLE
+for i in *.vsix
+do
+    code --install-extension $i
+done
+#+END_EXAMPLE
+
+オフラインで動作する VSCode の環境構築のために利用できる手法と思われます。
+
 *** 参考情報
 
 - https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
