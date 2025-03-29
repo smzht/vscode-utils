@@ -36,6 +36,9 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 
 - https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja
 
+ダウンロードされた vsix ファイルは、オフライン環境の PC に転送し、 VSCode アプリで
+インストールしてください。
+
 *** 参考情報
 
 - https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
