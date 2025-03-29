@@ -47,7 +47,7 @@ WSL の環境上で次のコマンドを実行してください。
 #+BEGIN_EXAMPLE
 code --update-extensions
 
-for i in $(cmd.exe /c code.cmd --list-extensions --show-versions 2> /dev/null);
+for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null);
 do
     arr=(${i//@/ })
     get-vsix ${arr[0]} ${arr[1]}
@@ -55,12 +55,12 @@ done
 #+END_EXAMPLE
 
 ダウンロードした vsix ファイルを VSCode に一括で取り込むには、WSL の環境上で次のコマンドを
-実行してください。vsix ファイルは Windows のファイルシステムエリアに置く必要があります。
+実行してください。vsix ファイルは Windows のファイルシステム上に置く必要があります。
 
 #+BEGIN_EXAMPLE
 for i in *.vsix
 do
-    cmd.exe /c code.cmd --install-extension $i
+    cmd.exe /c code --install-extension $i
 done
 #+END_EXAMPLE
 
