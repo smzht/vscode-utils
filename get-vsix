@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
-# https://open-vsx.org/
 
 # <Examples>
 #  get-vsix MS-CEINTL.vscode-language-pack-ja
