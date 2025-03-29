@@ -39,7 +39,7 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 ダウンロードされた vsix ファイルは、オフライン環境の PC に転送し、 VSCode アプリから
 インストールしてください。
 
-*** 使用例２
+*** 活用例
 
 Windows で動作している VSCode の拡張機能を全て vsix ファイルとしてダウンロードするには、
 WSL の環境上で次のコマンドを実行してください。
