@@ -1,0 +1,82 @@
+#+STARTUP: showall indent
+
+* VSCode Utilities
+
+VSCode のためのユティリティコマンド群です。
+
+Linux で動作します。コマンド内部で wget コマンドを利用しています。
+
+** ■ get-vsix
+
+VSCode の拡張機能ファイル vsix をダウンロードするコマンドです。
+VSCode をオフライン環境で利用する場合を想定して作成したコマンドとなります。
+
+*** 使用方法
+
+#+BEGIN_EXAMPLE
+get-vsix unique-identifier [version]
+#+END_EXAMPLE
+
+*** 使用例
+
+Japanese Language Pack for VS Code 拡張機能の vsix ファイルをダウンロードするには、
+次の通りのコマンドを入力することとなります。
+
+#+BEGIN_EXAMPLE
+get-vsix MS-CEINTL.vscode-language-pack-ja
+get-vsix MS-CEINTL.vscode-language-pack-ja latest
+get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
+get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025022817
+#+END_EXAMPLE
+
+unique-identifier、version の情報は、以下の Marketplace のサイトの右側 More Info の箇所で
+確認できます。
+
+- https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja
+
+古いバージョンは、Version History タブで確認することができます。
+
+version を省略すると、latest が指定されたものとなります。
+
+*** 参考情報
+
+- https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
+
+** ■ get-vscode-server
+
+VSCode の vscode-server ファイルをダウンロードするコマンドです。
+VSCode をオフライン環境で利用する場合を想定して作成したコマンドとなります。
+
+*** 使用方法
+
+#+BEGIN_EXAMPLE
+get-vscode-server commit-id
+#+END_EXAMPLE
+
+*** 使用例
+
+#+BEGIN_EXAMPLE
+get-vscode-server ddc367ed5c8936efe395cffeec279b04ffd7db78
+#+END_EXAMPLE
+
+commit-id の確認方法は、次のページを参照してください。
+
+- https://www.mathkuro.com/vs-code/remote-development-in-offline/
+
+コマンドを実行すると vscode-server-linux-x64.tar.gz という名称のファイルがダウンロードされます。
+このファイルを VSCode のサーバとするマシンに転送し、次のコマンドを実行して展開してください。
+
+#+BEGIN_EXAMPLE
+cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
+cd ~/.vscode-server/bin
+tar zxvf vscode-server-linux-x64.tar.gz
+mv vscode-server-linux-x64 <commit-id>
+rm vscode-server-linux-x64.tar.gz
+#+END_EXAMPLE
+
+<commit-id> の箇所については、上記の使用例では、ddc367ed5c8936efe395cffeec279b04ffd7db78 に
+置き換える必要があります。
+
+*** 参考情報
+
+- https://www.mathkuro.com/vs-code/remote-development-in-offline/
