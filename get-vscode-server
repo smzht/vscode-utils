@@ -23,5 +23,5 @@ wget -O vscode-server-linux-x64.tar.gz "https://update.code.visualstudio.com/com
 # cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
 # cd ~/.vscode-server/bin
 # tar zxvf vscode-server-linux-x64.tar.gz
-# mv vscode-server-linux-x64 "$1"
+# mv vscode-server-linux-x64 <commit-id>
 # rm vscode-server-linux-x64.tar.gz
