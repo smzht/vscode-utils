@@ -41,8 +41,12 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 
 *** 活用例
 
-Windows で動作している VSCode の拡張機能を全て vsix ファイルとしてダウンロードするには、
-WSL の環境上で次のコマンドを実行してください。
+インターネットに接続している Windows PC 上の VSCode から オフライン環境にある VSCode に
+全ての拡張機能を移行するには、次の方法で対応することができます。
+
+**** 1) VSCode の拡張機能を vsix ファイルとしてダウンロードする
+
+インターネットに接続している Windows PC の WSL の環境で次のコマンドを実行してください。
 
 #+BEGIN_EXAMPLE
 cmd.exe /c code --update-extensions
@@ -54,8 +58,10 @@ do
 done
 #+END_EXAMPLE
 
-ダウンロードした vsix ファイルを VSCode に一括で取り込むには、WSL の環境上で次のコマンドを
-実行してください。vsix ファイルは Windows のファイルシステム上に置く必要があります。
+**** 2) ダウンロードした vsix ファイルを取り込む
+
+オフライン環境にある Windows PC の Windows ファイルシステム配下に 1) でダウンロードした
+vsix フィアルを複写し、WSL の環境で次のコマンドを実行してください。
 
 #+BEGIN_EXAMPLE
 for i in *.vsix
@@ -63,8 +69,6 @@ do
     cmd.exe /c code --install-extension $i
 done
 #+END_EXAMPLE
-
-この方法は、オフラインで動作する VSCode の環境構築のために利用できると思います。
 
 *** 参考情報
 
