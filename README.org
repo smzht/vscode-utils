@@ -75,7 +75,7 @@ mv vscode-server-linux-x64 <commit-id>
 rm vscode-server-linux-x64.tar.gz
 #+END_EXAMPLE
 
-<commit-id> の箇所については、上記の使用例の場合には、ddc367ed5c8936efe395cffeec279b04ffd7db78
+<commit-id> の箇所は、上記の使用例の場合には、ddc367ed5c8936efe395cffeec279b04ffd7db78
 に置き換えてください。
 
 *** 参考情報
