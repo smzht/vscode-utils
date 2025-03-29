@@ -2,20 +2,22 @@
 
 * VSCode Utilities
 
-VSCode のためのユティリティコマンド群です。
+Visual Studio Code（VSCode）のためのユティリティコマンド群です。
 
 Linux で動作します。コマンド内部で wget コマンドを利用しています。
 
 ** ■ get-vsix
 
 VSCode の拡張機能ファイル vsix をダウンロードするコマンドです。
-VSCode をオフライン環境で利用する場合を想定して作成したコマンドとなります。
+VSCode をオフライン環境で利用する場合のために作成しました。
 
 *** 使用方法
 
 #+BEGIN_EXAMPLE
 get-vsix unique-identifier [version]
 #+END_EXAMPLE
+
+version を省略すると、latest が指定されたものとなります。
 
 *** 使用例
 
@@ -30,13 +32,9 @@ get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025022817
 #+END_EXAMPLE
 
 unique-identifier、version の情報は、以下の Marketplace のサイトの右側 More Info の箇所で
-確認できます。
+確認できます。バージョン履歴は、Version History タブで確認することができます。
 
 - https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja
-
-古いバージョンは、Version History タブで確認することができます。
-
-version を省略すると、latest が指定されたものとなります。
 
 *** 参考情報
 
@@ -45,7 +43,7 @@ version を省略すると、latest が指定されたものとなります。
 ** ■ get-vscode-server
 
 VSCode の vscode-server ファイルをダウンロードするコマンドです。
-VSCode をオフライン環境で利用する場合を想定して作成したコマンドとなります。
+VSCode をオフライン環境で利用する場合のために作成しました。
 
 *** 使用方法
 
@@ -74,8 +72,8 @@ mv vscode-server-linux-x64 <commit-id>
 rm vscode-server-linux-x64.tar.gz
 #+END_EXAMPLE
 
-<commit-id> の箇所については、上記の使用例では、ddc367ed5c8936efe395cffeec279b04ffd7db78 に
-置き換える必要があります。
+<commit-id> の箇所については、上記の使用例では、ddc367ed5c8936efe395cffeec279b04ffd7db78 を
+指定してください。
 
 *** 参考情報
 
