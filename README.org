@@ -45,7 +45,7 @@ Windows で動作している VSCode の拡張機能を全て vsix ファイル�
 WSL の環境上で次のコマンドを実行してください。
 
 #+BEGIN_EXAMPLE
-code --update-extensions
+cmd.exe /c code --update-extensions
 
 for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null);
 do
