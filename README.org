@@ -61,13 +61,21 @@ done
 **** 2) ダウンロードした vsix ファイルを取り込む
 
 オフライン環境にある Windows PC の Windows ファイルシステム配下に 1) でダウンロードした
-vsix フィアルを複写し、WSL の環境で次のコマンドを実行してください。
+vsix フィアルを複写し、VSCode を終了させた後、次のコマンドを実行してください。
 
+＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
 for i in *.vsix
 do
     cmd.exe /c code --install-extension $i
 done
+#+END_EXAMPLE
+
+＜Windows 環境（コマンドプロンプト）で実行する場合＞
+#+BEGIN_EXAMPLE
+for %%i in (*.vsix) do (
+    code --install-extension %%i
+)
 #+END_EXAMPLE
 
 *** 参考情報
