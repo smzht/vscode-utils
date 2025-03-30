@@ -36,9 +36,9 @@ if "%~2"=="" (
 )
 
 REM unique-identifier‚ğ•ªŠ„
-for /f "tokens=1,2 delims=." %%A in ("%~1") do (
-    set "part1=%%A"
-    set "part2=%%B"
+for /f "tokens=1,2 delims=." %%a in ("%~1") do (
+    set "part1=%%a"
+    set "part2=%%b"
 )
 
 REM •ªŠ„‚É¸”s‚µ‚½ê‡‚ÍI—¹
