@@ -4,12 +4,11 @@
 
 Visual Studio Code（VSCode）のためのユティリティコマンド群です。
 
-Linux で動作します。コマンド内部で wget コマンドを利用しています。
-
 ** ■ get-vsix
 
 VSCode の拡張機能ファイル vsix をダウンロードするコマンドです。
 VSCode をオフライン環境で利用する場合のために作成しました。
+Linux で動作するシェルスクリプトと Windows で動作するバッチファイルがあります。
 
 *** 使用方法
 
@@ -48,11 +47,23 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 
 インターネットに接続している Windows PC の WSL の環境で次のコマンドを実行してください。
 
+＜Windows 環境（コマンドプロンプト）で実行する場合＞
+#+BEGIN_EXAMPLE
+code --update-extensions
+
+for /f "usebackq delims=" %i in (`code --list-extensions --show-versions`) do (
+    for /f "tokens=1,2 delims=@" %a in ("%i") do (
+        get-vsix %a %b
+    )
+)
+#+END_EXAMPLE
+※ バッチファイルにする場合は、全ての % を %% に置き換える必要があります。
+
+＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
 cmd.exe /c code --update-extensions
 
-for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null);
-do
+for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null); do
     arr=(${i//@/ })
     get-vsix ${arr[0]} ${arr[1]}
 done
@@ -63,19 +74,19 @@ done
 オフライン環境にある Windows PC の Windows ファイルシステム配下に 1) でダウンロードした
 vsix フィアルを複写し、VSCode を終了させた後、次のコマンドを実行してください。
 
-＜WSL 環境（shell）で実行する場合＞
-#+BEGIN_EXAMPLE
-for i in *.vsix
-do
-    cmd.exe /c code --install-extension $i
-done
-#+END_EXAMPLE
-
 ＜Windows 環境（コマンドプロンプト）で実行する場合＞
 #+BEGIN_EXAMPLE
-for %%i in (*.vsix) do (
-    code --install-extension %%i
+for %i in (*.vsix) do (
+    code --install-extension %i
 )
+#+END_EXAMPLE
+※ バッチファイルにする場合は、全ての % を %% に置き換える必要があります。
+
+＜WSL 環境（shell）で実行する場合＞
+#+BEGIN_EXAMPLE
+for i in *.vsix; do
+    cmd.exe /c code --install-extension $i
+done
 #+END_EXAMPLE
 
 *** 参考情報
@@ -86,6 +97,7 @@ for %%i in (*.vsix) do (
 
 VSCode の vscode-server ファイルをダウンロードするコマンドです。
 VSCode をオフライン環境で利用する場合のために作成しました。
+Linux で動作するシェルスクリプトとなります。
 
 *** 使用方法
 
