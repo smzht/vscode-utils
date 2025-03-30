@@ -45,7 +45,7 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 
 **** 1) VSCode の拡張機能を vsix ファイルとしてダウンロードする
 
-インターネットに接続している Windows PC の WSL の環境で次のコマンドを実行してください。
+インターネットに接続している Windows PC で次のコマンドを実行してください。
 
 ＜Windows 環境（コマンドプロンプト）で実行する場合＞
 #+BEGIN_EXAMPLE
