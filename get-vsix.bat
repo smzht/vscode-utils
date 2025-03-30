@@ -20,14 +20,14 @@ goto main_processing
 REM 使用方法を表示する関数
 :usage_exit
 echo Usage: %command_name% unique-identifier [version]
-exit %1
+exit /b 2
 
 :main_processing
 
 REM 引数の数をチェック
 if "%~2"=="" (
     if "%~1"=="" (
-        call :usage_exit 2
+        goto :usage_exit
     ) else (
         set "version=latest"
     )
@@ -43,7 +43,7 @@ for /f "tokens=1,2 delims=." %%A in ("%~1") do (
 
 REM 分割に失敗した場合は終了
 if "%part2%"=="" (
-    call :usage_exit 2
+    goto :usage_exit
 )
 
 REM wgetコマンドの実行
