@@ -1,7 +1,7 @@
 @echo off
 
 REM 本バッチファイルは、shellスクリプト get-vsix を Microsoft Copilot に変換してもらったものを
-REM ベースにして作成しました
+REM ベースに作成しました
 REM 最後に実行していた wget は、Windows に標準インストールされている curl に置き換えています
 
 REM https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
