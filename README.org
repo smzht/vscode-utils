@@ -57,7 +57,8 @@ for /f "usebackq delims=" %i in (`code --list-extensions --show-versions`) do (
     )
 )
 #+END_EXAMPLE
-※ バッチファイルにする場合は、全ての % を %% に置き換える必要があります。
+※ バッチファイルにする場合は、先頭行に @echo off を追加し、全ての % を %% に置き換えて
+ください。
 
 ＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
@@ -80,7 +81,8 @@ for %i in (*.vsix) do (
     code --install-extension %i
 )
 #+END_EXAMPLE
-※ バッチファイルにする場合は、全ての % を %% に置き換える必要があります。
+※ バッチファイルにする場合は、先頭行に @echo off を追加し、全ての % を %% に置き換えて
+ください。
 
 ＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
