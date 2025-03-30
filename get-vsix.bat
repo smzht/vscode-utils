@@ -1,8 +1,8 @@
 @echo off
 
-REM –{ƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ÍAshellƒXƒNƒŠƒvƒg get-vsix ‚ğ Microsoft Copilot ‚É•ÏŠ·‚µ‚Ä‚à‚ç‚Á‚½‚à‚Ì‚ğ
-REM ƒx[ƒX‚Éì¬‚µ‚Ü‚µ‚½
-REM ÅŒã‚ÉÀs‚µ‚Ä‚¢‚½ wget ‚ÍAWindows ‚É•W€ƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚é curl ‚É’u‚«Š·‚¦‚Ä‚¢‚Ü‚·
+REM æœ¬ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€shellã‚¹ã‚¯ãƒªãƒ—ãƒˆ get-vsix ã‚’ Microsoft Copilot ã«å¤‰æ›ã—ã¦ã‚‚ã‚‰ã£ãŸã‚‚ã®ã‚’
+REM ãƒ™ãƒ¼ã‚¹ã«ä½œæˆã—ã¾ã—ãŸ
+REM æœ€å¾Œã«å®Ÿè¡Œã—ã¦ã„ãŸ wget ã¯ã€Windows ã«æ¨™æº–ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹ curl ã«ç½®ãæ›ãˆã¦ã„ã¾ã™
 
 REM https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
 
@@ -12,22 +12,22 @@ REM  get-vsix MS-CEINTL.vscode-language-pack-ja latest
 REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
 REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025031209
 
-REM ƒRƒ}ƒ“ƒh–¼‚Ìæ“¾
+REM ã‚³ãƒãƒ³ãƒ‰åã®å–å¾—
 set "command_name=%~n0"
 
 goto main_processing
 
-REM g—p•û–@‚ğ•\¦‚·‚éŠÖ”
+REM ä½¿ç”¨æ–¹æ³•ã‚’è¡¨ç¤ºã™ã‚‹é–¢æ•°
 :usage_exit
 echo Usage: %command_name% unique-identifier [version]
 exit /b 2
 
 :main_processing
 
-REM ˆø”‚Ì”‚ğƒ`ƒFƒbƒN
+REM å¼•æ•°ã®æ•°ã‚’ãƒã‚§ãƒƒã‚¯
 if "%~2"=="" (
     if "%~1"=="" (
-        goto :usage_exit
+        goto usage_exit
     ) else (
         set "version=latest"
     )
@@ -35,18 +35,18 @@ if "%~2"=="" (
     set "version=%~2"
 )
 
-REM unique-identifier‚ğ•ªŠ„
+REM unique-identifierã‚’åˆ†å‰²
 for /f "tokens=1,2 delims=." %%a in ("%~1") do (
     set "part1=%%a"
     set "part2=%%b"
 )
 
-REM •ªŠ„‚É¸”s‚µ‚½ê‡‚ÍI—¹
+REM åˆ†å‰²ã«å¤±æ•—ã—ãŸå ´åˆã¯çµ‚äº†
 if "%part2%"=="" (
-    goto :usage_exit
+    goto usage_exit
 )
 
-REM wgetƒRƒ}ƒ“ƒh‚ÌÀs
+REM wgetã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ
 set "url=https://%part1%.gallery.vsassets.io/_apis/public/gallery/publisher/%part1%/extension/%part2%/%version%/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
 REM wget -O "%part1%.%part2%-%version%.vsix" "%url%"
 curl -L --ssl-no-revoke "%url%" -o "%part1%.%part2%-%version%.vsix"
