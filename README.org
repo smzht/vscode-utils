@@ -45,7 +45,7 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 
 **** 1) VSCode の拡張機能を vsix ファイルとしてダウンロードする
 
-VSCode 利用しているインターネットに接続している Windows PC で、次のコマンドを実行してください。
+VSCode を利用しているインターネットに接続している Windows PC で、次のコマンドを実行してください。
 
 ＜Windows 環境（コマンドプロンプト）で実行する場合＞
 #+BEGIN_EXAMPLE
@@ -72,8 +72,8 @@ done
 
 **** 2) ダウンロードした vsix ファイルを取り込む
 
-オフライン環境にある Windows PC の Windows ファイルシステム配下に 1) でダウンロードした
-vsix フィアルを複写し、VSCode を終了させた後、次のコマンドを実行してください。
+オフライン環境にある Windows PC に 1) でダウンロードした vsix ファイルを複写し、VSCode
+を終了させた後、次のコマンドを実行してください。
 
 ＜Windows 環境（コマンドプロンプト）で実行する場合＞
 #+BEGIN_EXAMPLE
@@ -90,6 +90,8 @@ for i in *.vsix; do
     cmd.exe /c code --install-extension $i
 done
 #+END_EXAMPLE
+※ WSL 環境で実行する場合でも、vsix ファイルは Windows ファイルシステム配下に置く必要が
+あります。（cmd.exe コマンドを利用しているため。）
 
 *** 参考情報
 
