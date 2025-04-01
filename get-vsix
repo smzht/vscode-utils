@@ -1,6 +1,14 @@
 #!/bin/bash
 # -*- mode: sh; coding: utf-8-unix -*-
 
+# https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
+
+# <Examples>
+#  get-vsix MS-CEINTL.vscode-language-pack-ja
+#  get-vsix MS-CEINTL.vscode-language-pack-ja latest
+#  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
+#  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025031209
+
 command_name=$(basename "$0")
 
 function usage_exit() {

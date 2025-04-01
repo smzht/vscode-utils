@@ -1,5 +1,13 @@
 @echo off
 
+REM https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
+
+REM <Examples>
+REM  get-vsix MS-CEINTL.vscode-language-pack-ja
+REM  get-vsix MS-CEINTL.vscode-language-pack-ja latest
+REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
+REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025031209
+
 REM コマンド名の取得
 set "command_name=%~n0"
 
