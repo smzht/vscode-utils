@@ -96,6 +96,11 @@ done
 *** 参考情報
 
 - https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/
+- https://stackoverflow.com/questions/69398500/vscode-download-older-version-of-an-extension
+- https://www.vsixhub.com/
+
+- https://blog.tomoyukim.net/entry/ovsx-vscode-extension/
+- https://open-vsx.org/
 
 ** ■ get-vscode-server
 
