@@ -65,8 +65,8 @@ for /f "usebackq delims=" %i in (`code --list-extensions --show-versions`) do (
 cmd.exe /c code --update-extensions
 
 for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null); do
-    arr=(${i//@/ })
-    get-vsix ${arr[0]} ${arr[1]}
+    parts=(${i//@/ })
+    get-vsix ${parts[0]} ${parts[1]}
 done
 #+END_EXAMPLE
 
