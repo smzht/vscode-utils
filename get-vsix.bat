@@ -43,5 +43,4 @@ if "%part2%"=="" (
 )
 
 REM curlコマンドの実行
-set "url=https://%part1%.gallery.vsassets.io/_apis/public/gallery/publisher/%part1%/extension/%part2%/%version%/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
-curl -L --ssl-no-revoke "%url%" -o "%part1%.%part2%-%version%.vsix"
+curl -L --ssl-no-revoke "https://%part1%.gallery.vsassets.io/_apis/public/gallery/publisher/%part1%/extension/%part2%/%version%/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage" -o "%part1%.%part2%-%version%.vsix"
