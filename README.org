@@ -99,7 +99,7 @@ done
 - https://stackoverflow.com/questions/69398500/vscode-download-older-version-of-an-extension
 - https://www.vsixhub.com/
 
-- https://blog.tomoyukim.net/entry/ovsx-vscode-extension/
+- https://zenn.dev/yhatt/scraps/876f6fe83c901d
 - https://open-vsx.org/
 
 ** ■ get-vscode-server
