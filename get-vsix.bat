@@ -9,7 +9,7 @@ REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.99.2025032609
 REM  get-vsix MS-CEINTL.vscode-language-pack-ja 1.98.2025031209
 
 REM コマンド名の取得
-set "command_name=%~n0"
+set command_name=%~n0
 
 goto main_processing
 
@@ -25,16 +25,16 @@ if "%~2"=="" (
     if "%~1"=="" (
         goto usage_exit
     ) else (
-        set "version=latest"
+        set version=latest
     )
 ) else (
-    set "version=%~2"
+    set version=%~2
 )
 
 REM unique-identifierを分割
 for /f "tokens=1,2 delims=." %%a in ("%~1") do (
-    set "part1=%%a"
-    set "part2=%%b"
+    set part1=%%a
+    set part2=%%b
 )
 
 REM 分割に失敗した場合は終了
