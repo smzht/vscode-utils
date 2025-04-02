@@ -13,20 +13,22 @@ set command_name=%~n0
 
 goto main_processing
 
-REM 使用方法を表示する関数
+REM エラー処理
 :usage_exit
 echo Usage: %command_name% unique-identifier [version]
 exit /b 2
 
 :main_processing
 
-REM 引数の数をチェック
+REM 引数チェック
+if "%~1"=="" (
+    goto usage_exit
+)
+if not "%~3"=="" (
+    goto usage_exit
+)
 if "%~2"=="" (
-    if "%~1"=="" (
-        goto usage_exit
-    ) else (
-        set version=latest
-    )
+    set version=latest
 ) else (
     set version=%~2
 )
