@@ -1,9 +1,9 @@
 @echo off
 
-rem https://www.mathkuro.com/vs-code/remote-development-in-offline/
+REM https://www.mathkuro.com/vs-code/REMote-development-in-offline/
 
-rem <Example>
-rem get-vscode-server ddc367ed5c8936efe395cffeec279b04ffd7db78
+REM <Example>
+REM get-vscode-server ddc367ed5c8936efe395cffeec279b04ffd7db78
 
 set command_name=%~n0
 
@@ -19,10 +19,11 @@ if "%~1"=="" (
     goto usage_exit
 )
 
-curl -L --ssl-no-revoke "https://update.code.visualstudio.com/commit:%~1/server-linux-x64/stable" -o vscode-server-linux-x64.tar.gz 
+curl -L --ssl-no-revoke "https://update.code.visualstudio.com/commit:%~1/server-linux-x64/stable" -o vscode-server-linux-x64.tar.gz
 
-rem cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
-rem cd ~/.vscode-server/bin
-rem tar zxvf vscode-server-linux-x64.tar.gz
-rem mv vscode-server-linux-x64 <commit-id>
-rem rm vscode-server-linux-x64.tar.gz
+REM vscode-server-linux-x64.tar.gz をサーバマシンに転送し、以下を実行する
+REM cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
+REM cd ~/.vscode-server/bin
+REM tar zxvf vscode-server-linux-x64.tar.gz
+REM mv vscode-server-linux-x64 <commit-id>
+REM rm vscode-server-linux-x64.tar.gz
