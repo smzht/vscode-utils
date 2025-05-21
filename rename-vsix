@@ -13,5 +13,6 @@ if len(sys.argv) == 2:
         with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
             with zip_file.open('extension/package.json') as file:
                 data = json.load(file)
-                os.rename(zip_file_name,
-                          f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
+
+        os.rename(zip_file_name,
+                  f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
