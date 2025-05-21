@@ -136,10 +136,10 @@ done
 #+BEGIN_EXAMPLE
 for i in *.vsix; do
     rename-vsix $i
-done | sh
+done
 #+END_EXAMPLE
-※ コマンドを実行する一回目は、最後の shell へのパイプをせずに確認してください。
-内容に問題がなければ、出力されたスクリプトを shell で実行してください。
+※ 出力された内容に問題がなければ、出力されたスクリプトを shell にパイプで入力して、
+実行してください。
 
 *** 参考情報
 
