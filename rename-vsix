@@ -6,11 +6,12 @@ import os
 import zipfile
 import json
 
-if len(sys.argv) == 1 and zip_file_name.endswith("-latest.vsix"):
+if len(sys.argv) == 1:
     zip_file_name = sys.argv[1]
 
-    with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
-        with zip_file.open('extension/package.json') as file:
-            data = json.load(file)
-            os.rename(zip_file_name,
-                      f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
+    if zip_file_name.endswith("-latest.vsix"):
+        with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
+            with zip_file.open('extension/package.json') as file:
+                data = json.load(file)
+                os.rename(zip_file_name,
+                          f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
