@@ -6,7 +6,7 @@ import os
 import zipfile
 import json
 
-if sys.argc == 1 and zip_file_name.endswith("-latest.vsix"):
+if len(sys.argv) == 1 and zip_file_name.endswith("-latest.vsix"):
     zip_file_name = sys.argv[1]
 
     with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
