@@ -101,6 +101,11 @@ done
 拡張機能を最新バージョンする場合は、予め VSCode のバージョンも最新バージョンにして
 ください。
 
+なお、この活用例の場合、活用例１の場合とは異なり、VSCode のバージョンと拡張機能の
+バージョンとで不整合が発生し、拡張機能がインストールできない場合があります。
+その場合は、拡張機能のバージョンを指定してダウンロードするなど、個別に対応する必要が
+あります。
+
 **** 1) VSCode の拡張機能の unique-identifier のリストを取り込む
 
 オフライン環境にある Windows PC のコマンドプロンプトで、次のコマンドを実行してください。
@@ -130,7 +135,7 @@ for i in $(cat list.txt); do
 done
 #+END_EXAMPLE
 
-**** 3) 必要に応じて、取り込んだ vsix ファイルをバージョンが分かるファイル名に変更してください
+**** 3) 必要に応じて、取り込んだ vsix ファイルをバージョンが分かるファイル名に変更する
 
 ＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
@@ -140,6 +145,29 @@ done
 #+END_EXAMPLE
 ※ 出力された内容に問題がなければ、出力されたスクリプトを shell にパイプで出力して、
 実行してください。
+
+**** 4) ダウンロードした vsix ファイルを取り込む
+
+オフライン環境にある Windows PC に 2) でダウンロードした vsix ファイルを複写し、
+VSCode を終了させた後、次のコマンドを実行してください。
+
+＜Windows 環境（コマンドプロンプト）で実行する場合＞
+#+BEGIN_EXAMPLE
+for %i in (*.vsix) do (
+    code --install-extension %i
+)
+#+END_EXAMPLE
+※ バッチファイルにする場合は、先頭行に @echo off を追加し、全ての % を %% に置き換えて
+ください。
+
+＜WSL 環境（shell）で実行する場合＞
+#+BEGIN_EXAMPLE
+for i in *.vsix; do
+    cmd.exe /c code --install-extension $i
+done
+#+END_EXAMPLE
+※ WSL 環境で実行する場合でも、vsix ファイルは Windows ファイルシステム配下に置く必要が
+あります。（cmd.exe コマンドを利用しているため。）
 
 *** 参考情報
 
