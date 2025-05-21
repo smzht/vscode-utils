@@ -6,13 +6,21 @@ import os
 import zipfile
 import json
 
-if len(sys.argv) == 2:
-    zip_file_name = sys.argv[1]
+def usage_exit(exit_code):
+    print(f"Usage: {os.path.basename(sys.argv[0])} latest-vsix-file", file=sys.stderr)
+    sys.exit(exit_code)
 
-    if zip_file_name.endswith("-latest.vsix"):
-        with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
-            with zip_file.open('extension/package.json') as file:
-                data = json.load(file)
+if len(sys.argv) != 2:
+    usage_exit(2)
 
-        os.rename(zip_file_name,
-                  f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
+zip_file_name = sys.argv[1]
+
+if not zip_file_name.endswith("-latest.vsix"):
+    usage_exit(2)
+    
+with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
+    with zip_file.open('extension/package.json') as file:
+        data = json.load(file)
+
+os.rename(zip_file_name,
+          f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
