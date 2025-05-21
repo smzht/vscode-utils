@@ -38,7 +38,7 @@ unique-identifier、version の情報は、以下の Marketplace のサイトの
 ダウンロードされた vsix ファイルは、オフライン環境の PC に転送し、 VSCode アプリから
 インストールしてください。
 
-*** 活用例
+*** 活用例１
 
 インターネットに接続している Windows PC 上の VSCode から オフライン環境にある VSCode に
 全ての拡張機能を移行するには、次の方法で対応することができます。
@@ -92,6 +92,51 @@ done
 #+END_EXAMPLE
 ※ WSL 環境で実行する場合でも、vsix ファイルは Windows ファイルシステム配下に置く必要が
 あります。（cmd.exe コマンドを利用しているため。）
+
+*** 活用例２
+
+オフライン環境にある Windows PC 上の VSCode の全ての拡張機能を最新バージョンするには、
+次の方法で対応することができます。
+
+**** 1) VSCode の拡張機能の unique-identifier のリストを取り込む
+
+オフライン環境にある Windows PC のコマンドプロンプトで、次のコマンドを実行してください。
+
+#+BEGIN_EXAMPLE
+code --list-extensions > list.txt
+#+END_EXAMPLE
+
+**** 2) VSCode の拡張機能を vsix ファイルとしてダウンロードする
+
+インターネットに接続している Windows PC に 1) で作成した list.txt を取り込み、
+次のコマンドを実行してください。
+
+＜Windows 環境（コマンドプロンプト）で実行する場合＞
+#+BEGIN_EXAMPLE
+for /F %i in (list.txt) do (
+    get-vsix %i
+)
+#+END_EXAMPLE
+※ バッチファイルにする場合は、先頭行に @echo off を追加し、全ての % を %% に置き換えて
+ください。
+
+＜WSL 環境（shell）で実行する場合＞
+#+BEGIN_EXAMPLE
+for i in $(cat list.txt); do
+    get-vsix $i
+done
+#+END_EXAMPLE
+
+**** 3) 必要に応じて、取り込んだ vsix ファイルをバージョンが分かるファイル名に変更してください
+
+＜WSL 環境（shell）で実行する場合＞
+#+BEGIN_EXAMPLE
+for i in *.vsix; do
+    rename-vsix $i
+done | sh
+#+END_EXAMPLE
+※ コマンドを実行する一回目は、最後の shell へのパイプをせずに確認してください。
+内容に問題がなければ、出力されたスクリプトを shell で実行してください。
 
 *** 参考情報
 
