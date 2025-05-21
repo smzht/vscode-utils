@@ -2,12 +2,18 @@
 # -*- mode: python; coding: utf-8-unix -*-
 
 import sys
+import os
 import zipfile
 import json
 
-zip_file_name = sys.argv[1]
+try:
+    zip_file_name = sys.argv[1]
 
-with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
-    with zip_file.open('extension/package.json') as file:
-        data = json.load(file)
-        print(f"mv {zip_file_name} {zip_file_name.rsplit('-', 1)[0]}-{data['version']}.vsix")
+    if zip_file_name.endswith("-latest.vsix"):
+        with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
+            with zip_file.open('extension/package.json') as file:
+                data = json.load(file)
+                os.rename(zip_file_name,
+                          f"{zip_file_name.removesuffix('-latest.vsix')}-{data['version']}.vsix")
+except:
+    pass

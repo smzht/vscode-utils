@@ -137,14 +137,21 @@ done
 
 **** 3) 必要に応じて、取り込んだ vsix ファイルをバージョンが分かるファイル名に変更する
 
+＜Windows 環境（コマンドプロンプト）で実行する場合＞
+#+BEGIN_EXAMPLE
+for %i in (*-latest.vsix) do (
+    python rename-vsix %i
+)
+#+END_EXAMPLE
+※ バッチファイルにする場合は、先頭行に @echo off を追加し、全ての % を %% に置き換えて
+ください。
+
 ＜WSL 環境（shell）で実行する場合＞
 #+BEGIN_EXAMPLE
-for i in *.vsix; do
+for i in *-latest.vsix; do
     rename-vsix $i
 done
 #+END_EXAMPLE
-※ 出力された内容に問題がなければ、出力されたスクリプトを shell にパイプで出力して、
-実行してください。
 
 **** 4) ダウンロードした vsix ファイルを取り込む
 
