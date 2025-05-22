@@ -70,7 +70,7 @@ for i in $(cmd.exe /c code --list-extensions --show-versions 2> /dev/null); do
 done
 #+END_EXAMPLE
 
-**** 2) ダウンロードした vsix ファイルを VSCode に取り込む
+**** 2) ダウンロードした vsix ファイルを VSCode にインストールする
 
 オフライン環境にある Windows PC に 1) でダウンロードした vsix ファイルを複写し、VSCode
 を終了させた後、次のコマンドを実行してください。
@@ -153,7 +153,7 @@ for i in *-latest.vsix; do
 done
 #+END_EXAMPLE
 
-**** 4) ダウンロードした vsix ファイルを VSCode に取り込む
+**** 4) ダウンロードした vsix ファイルを VSCode にインストールする
 
 オフライン環境にある Windows PC に 2) でダウンロードした vsix ファイルを複写し、
 VSCode を終了させた後、次のコマンドを実行してください。
