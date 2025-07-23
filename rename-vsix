@@ -17,7 +17,7 @@ zip_file_name = sys.argv[1]
 
 if not zip_file_name.endswith("-latest.vsix"):
     usage_exit(2)
-    
+
 with zipfile.ZipFile(zip_file_name, 'r') as zip_file:
     with zip_file.open('extension/package.json') as file:
         data = json.load(file)
