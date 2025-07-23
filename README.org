@@ -187,6 +187,11 @@ done
 - https://www.vsixhub.com/
 - https://open-vsx.org/
 
+*** Chrome の拡張機能によるダウンロードの方法（2025/07/23 追記）
+
+- https://obel.hatenablog.jp/entry/20250718/1752782400
+- https://chromewebstore.google.com/detail/visual-studio-marketplace/pfnjpnflbdpmbpnifkdheagiilnhccgh?pli=1
+
 ** ■ get-vscode-server
 
 VSCode の vscode-server ファイルをダウンロードするコマンドです。
