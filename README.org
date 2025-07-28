@@ -192,6 +192,10 @@ done
 - https://obel.hatenablog.jp/entry/20250718/1752782400
 - https://chromewebstore.google.com/detail/visual-studio-marketplace/pfnjpnflbdpmbpnifkdheagiilnhccgh?pli=1
 
+※ 2025/5/9 に VSCode の拡張機能をダウンロードするための Chrome の拡張機能がリリースされています。
+本サイトで紹介しているコマンドは、上記の活用例で紹介しているようにバッチ処理で利用できますので、
+使い分けていただければと思います。
+
 ** ■ get-vscode-server
 
 VSCode の vscode-server ファイルをダウンロードするコマンドです。
