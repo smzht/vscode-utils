@@ -25,7 +25,7 @@ fi
 if [ $# -eq 1 ]; then
     version=latest
 else
-    version="$2"
+    version=$2
 fi
 
 parts=(${1//./ })
