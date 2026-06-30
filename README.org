@@ -218,13 +218,13 @@ commit-id の確認方法は、次のページを参照してください。
 
 - https://www.mathkuro.com/vs-code/remote-development-in-offline/
 
-コマンドを実行すると vscode-server-linux-x64.tar.gz という名称のファイルがダウンロードされます。
+コマンドを実行すると vscode-server-<commit-id>.tar.gz という名称のファイルがダウンロードされます。
 このファイルを VSCode のサーバとするマシンに転送し、次のコマンドを実行して展開してください。
 
 #+BEGIN_EXAMPLE
-cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
+cp vscode-server-<commit-id>.tar.gz ~/.vscode-server/bin
 cd ~/.vscode-server/bin
-tar zxvf vscode-server-linux-x64.tar.gz
+tar zxvf vscode-server-<commit-id>.tar.gz
 mv vscode-server-linux-x64 <commit-id>
 rm vscode-server-linux-x64.tar.gz
 #+END_EXAMPLE

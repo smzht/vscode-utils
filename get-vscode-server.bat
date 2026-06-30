@@ -19,7 +19,7 @@ if "%~1"=="" (
     goto usage_exit
 )
 
-curl -L --ssl-no-revoke "https://update.code.visualstudio.com/commit:%~1/server-linux-x64/stable" -o vscode-server-linux-x64.tar.gz
+curl -L --ssl-no-revoke "https://update.code.visualstudio.com/commit:%~1/server-linux-x64/stable" -o "vscode-server-%~1.tar.gz"
 
 REM vscode-server-linux-x64.tar.gz をサーバマシンに転送し、以下を実行する
 REM cp vscode-server-linux-x64.tar.gz ~/.vscode-server/bin
